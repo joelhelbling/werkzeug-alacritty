@@ -1,0 +1,6 @@
+---
+tasks:
+- source: ./config_alacritty.yml
+  target: ~/.config/alacritty.yml
+  operation: link
+  preserve_original: true
