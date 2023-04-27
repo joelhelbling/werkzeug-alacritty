@@ -4,3 +4,9 @@ tasks:
   target: ~/.config/alacritty.yml
   operation: link
   preserve_original: true
+  uname: darwin
+- source: ./alacritty
+  target: ~/.config/alacritty
+  operation: link
+  preserve_original: true
+  uname: linux
