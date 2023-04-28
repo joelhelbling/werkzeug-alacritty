@@ -1,12 +1,32 @@
 ---
 tasks:
-- source: ./config_alacritty.yml
-  target: ~/.config/alacritty.yml
-  operation: link
-  preserve_original: true
-  uname: darwin
-- source: ./alacritty
-  target: ~/.config/alacritty
-  operation: link
-  preserve_original: true
+- operation: link
   uname: linux
+  source: ./alacritty
+  target: ~/.config/alacritty
+  preserve_original: true
+- operation: copy
+  uname: darwin
+  source: ./alacritty/alacritty.yml
+  target: ./dist/darwin_alacritty.yml
+  preserve_original: false
+- operation: merge_yaml
+  uname: darwin
+  target: ./dist/darwin_alacritty.yml
+  changes:
+    window:
+      decorations: buttonless
+    font:
+      size: 16.0
+      offset:
+        y: 4
+      AppleFontSmoothing: true
+    shell:
+      program: /opt/homebrew/bin/fish
+    hints:
+      program: open
+- operation: link
+  uname: darwin
+  source: ./dist/darwin_alacritty.yml
+  target: ~/.config/alacritty.yml
+  preserve_original: true
