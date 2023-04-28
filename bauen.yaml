@@ -24,7 +24,8 @@ tasks:
     shell:
       program: /opt/homebrew/bin/fish
     hints:
-      program: open
+      launcher:
+        program: open
 - operation: link
   uname: darwin
   source: ./dist/darwin_alacritty.yml
